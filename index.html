@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árbol de Navidad Realista</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-christmas">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="nav-icon">🎄</span>
+                <span class="nav-title">Feliz Navidad</span>
+            </div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link"><span>🏠</span>Inicio</a></li>
+                <li><a href="regalos.html" class="nav-link"><span>🎁</span>Regalos</a></li>
+                <li><a href="santa.html" class="nav-link"><span>🎅</span>Santa</a></li>
+                <li><a href="luces.html" class="nav-link"><span>⭐</span>Deseos</a></li>
+                <li><a href="recuerdos.html" class="nav-link"><span>❄️</span>Recuerdos</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container">
+        <section class="tree-container">
+            <div class="star" role="img" aria-label="Estrella de navidad"></div>
+            <article class="christmas-tree">
+                <div class="tree-layer tree-layer-1"></div>
+                <div class="tree-layer tree-layer-2"></div>
+                <div class="tree-layer tree-layer-3"></div>
+                <div class="tree-layer tree-layer-4"></div>
+                <div class="tree-layer tree-layer-5"></div>
+                <div class="tree-layer tree-layer-6"></div>
+                <div class="tree-layer tree-layer-7"></div>
+                <div class="tree-layer tree-layer-8"></div>
+                <div class="tree-layer tree-layer-9"></div>
+                <div class="tree-layer tree-layer-10"></div>
+                <div class="lights" role="img" aria-label="Luces del árbol"></div>
+                <div class="decorations" role="img" aria-label="Decoraciones del árbol"></div>
+            </article>
+            <div class="trunk" role="img" aria-label="Tronco del árbol"></div>
+            <div class="gifts-container">
+                <div class="gift">
+                    <div class="gift-face front" data-symbol="🎅">
+                        <span class="ribbon-h"></span>
+                    </div>
+                    <div class="gift-face back"></div>
+                    <div class="gift-face top"></div>
+                    <div class="gift-face bottom"></div>
+                    <div class="gift-face left"></div>
+                    <div class="gift-face right"></div>
+                </div>
+                <div class="gift">
+                    <div class="gift-face front" data-symbol="🎄">
+                        <span class="ribbon-h"></span>
+                    </div>
+                    <div class="gift-face back"></div>
+                    <div class="gift-face top"></div>
+                    <div class="gift-face bottom"></div>
+                    <div class="gift-face left"></div>
+                    <div class="gift-face right"></div>
+                </div>
+                <div class="gift">
+                    <div class="gift-face front" data-symbol="⭐">
+                        <span class="ribbon-h"></span>
+                    </div>
+                    <div class="gift-face back"></div>
+                    <div class="gift-face top"></div>
+                    <div class="gift-face bottom"></div>
+                    <div class="gift-face left"></div>
+                    <div class="gift-face right"></div>
+                </div>
+                <div class="gift">
+                    <div class="gift-face front" data-symbol="🎁">
+                        <span class="ribbon-h"></span>
+                    </div>
+                    <div class="gift-face back"></div>
+                    <div class="gift-face top"></div>
+                    <div class="gift-face bottom"></div>
+                    <div class="gift-face left"></div>
+                    <div class="gift-face right"></div>
+                </div>
+                <div class="gift">
+                    <div class="gift-face front" data-symbol="❄️">
+                        <span class="ribbon-h"></span>
+                    </div>
+                    <div class="gift-face back"></div>
+                    <div class="gift-face top"></div>
+                    <div class="gift-face bottom"></div>
+                    <div class="gift-face left"></div>
+                    <div class="gift-face right"></div>
+                </div>
+            </div>
+        </section>
+    </section> <!-- Cierre de tree-container -->
+    <div class="snow" aria-hidden="true"></div>
+        <div class="snow" aria-hidden="true"></div>
+        <!-- Agregar esta nueva sección aquí -->
+        <section class="gifts-results">
+            <div class="tex">
+                <h1 class="text">¡Feliz Navidad!
+                    <span class="emoji" role="img" aria-label="Cara sonriente con ojos de corazón">😍</span>
+                    <span class="emoji" role="img" aria-label="Árbol de navidad">🎄</span>
+                </h1>
+                <h1 class="text">¡Te amo espero que la pases bonito!
+                    <span class="emoji" role="img" aria-label="Cara sonriente con ojos de corazón">😍</span>
+                    <span class="emoji" role="img" aria-label="corazón">❤️</span>
+                    <button role="button" aria-label="Botón navideño">
+                        FELIZ NAVIDAD
+                        <span class="decoratio"></span>
+                    </button>
+                    <audio id="christmasAudio" preload="auto">
+                        <source src="musica/mixkit-golden-freezer-505.mp3" type="audio/mp3">
+                    </audio>
+                </h1>
+            </div>
+            <div class="gifts-table-container">
+                <h2 class="gifts-table-title">Tus Regalos Especiales</h2>
+                <div class="gifts-table">
+                    <div class="table-header">
+                        <div class="header-cell">Regalo</div>
+                        <div class="header-cell">Sugerencias</div>
+                    </div>
+                    <div id="tableBody" class="table-body">
+                        <!-- Aquí se agregarán las filas -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="christmas-footer">
+        <div class="footer-content">
+            <div class="footer-message">
+                <p class="footer-text">
+                    Hecho con <span class="heart-beat">❤️</span> para ti
+                </p>
+                <p class="footer-date">Navidad 2024</p>
+            </div>
+            <div class="footer-decorations">
+                <div class="decoration-row">
+                    <span class="decoration-item">🎄</span>
+                    <span class="decoration-item">🎁</span>
+                    <span class="decoration-item">⭐</span>
+                    <span class="decoration-item">🕊️</span>
+                </div>
+            </div>
+            <div class="footer-social">
+                <p class="footer-love">Con todo mi amor</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

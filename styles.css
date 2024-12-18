@@ -1,0 +1,1318 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Modifica el estilo del body */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding-top: 120px;
+    background: #0a2e44;
+    position: relative; /* Añadido */
+}
+
+.tex{
+    padding: 10%;
+}
+.nav-christmas {
+    background: linear-gradient(
+        45deg, 
+        #c70012 0%, 
+        #8b0000 25%, 
+        #1a472a 50%, 
+        #8b0000 75%, 
+        #c70012 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.nav-icon {
+    font-size: 2.2rem;
+    animation: bounce 2s infinite;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.nav-title {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+                 0 0 10px rgba(255, 215, 0, 0.5),
+                 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-link span {
+    font-size: 1.3rem;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* Estilos para el menú hamburguesa */
+.nav-toggle-input {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.nav-toggle-label span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(45deg, #c70012, #8b0000);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle-input:checked ~ .nav-menu {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-toggle-input:checked ~ .nav-toggle-label span:first-child {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .nav-toggle-input:checked ~ .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle-input:checked ~ .nav-toggle-label span:last-child {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+
+    .nav-title {
+        font-size: 1.2rem;
+    }
+
+    .nav-icon {
+        font-size: 1.8rem;
+    }
+
+    .nav-link {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para dispositivos muy pequeños */
+@media screen and (max-width: 320px) {
+    .nav-title {
+        font-size: 1rem;
+    }
+
+    .nav-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Modifica el container */
+.container {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 90px); /* Añadido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;/* Añadido - ajusta según el alto de tu footer */
+}
+
+.tree-container {
+    position: relative;
+    width: min(300px, 90vw);
+    height: min(400px, 70vh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.christmas-tree {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 2vh;
+}
+
+/* Capas del árbol */
+.tree-layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tree-layer-1 {
+    width: 90%;
+    height: 20%;
+    background: linear-gradient(135deg, 
+        #0d4027 0%,
+        #0f5931 50%,
+        #0d4027 100%);
+    z-index: 1;
+    bottom: 0;
+    border-radius: 90% 90% 50% 50%;
+    transform: translateX(-50%) scaleY(1.2);
+}
+
+.tree-layer-2 {
+    width: 80%;
+    height: 18%;
+    background: linear-gradient(135deg, 
+        #0f5931 0%,
+        #126b39 50%,
+        #0f5931 100%);
+    z-index: 2;
+    bottom: 15%;
+    border-radius: 90% 90% 50% 50%;
+    transform: translateX(-50%) scaleY(1.3);
+}
+
+.tree-layer-3 {
+    width: 70%;
+    height: 16%;
+    background: linear-gradient(135deg, 
+        #126b39 0%,
+        #147a3b 50%,
+        #126b39 100%);
+    z-index: 3;
+    bottom: 30%;
+    border-radius: 90% 90% 50% 50%;
+    transform: translateX(-50%) scaleY(1.4);
+}
+
+.tree-layer-4 {
+    width: 60%;
+    height: 14%;
+    background: linear-gradient(135deg, 
+        #147a3b 0%,
+        #1a8c4f 50%,
+        #147a3b 100%);
+    z-index: 4;
+    bottom: 45%;
+    border-radius: 90% 90% 50% 50%;
+    transform: translateX(-50%) scaleY(1.5);
+}
+
+.tree-layer-5 {
+    width: 50%;
+    height: 12%;
+    background: linear-gradient(135deg, 
+        #1a8c4f 0%,
+        #20a861 50%,
+        #1a8c4f 100%);
+    z-index: 5;
+    bottom: 58%;
+    border-radius: 90% 90% 50% 50%;
+    transform: translateX(-50%) scaleY(1.5);
+}
+
+.tree-layer-6 {
+    width: 40%;
+    height: 10%;
+    background: linear-gradient(135deg, 
+        #20a861 0%,
+        #25c070 50%,
+        #20a861 100%);
+    z-index: 6;
+    bottom: 70%;
+    border-radius: 90% 90% 50% 50%;
+    transform: translateX(-50%) scaleY(1.5);
+}
+
+.tree-layer-7 {
+    width: 30%;
+    height: 8%;
+    background: linear-gradient(135deg, 
+        #25c070 0%,
+        #2ad47c 50%,
+        #25c070 100%);
+    z-index: 7;
+    bottom: 80%;
+    border-radius: 90% 90% 50% 50%;
+    transform: translateX(-50%) scaleY(1.5);
+}
+
+.tree-layer-8 {
+    width: 22%;
+    height: 6%;
+    background: linear-gradient(135deg, 
+        #2ad47c 0%,
+        #32e889 50%,
+        #2ad47c 100%);
+    z-index: 8;
+    bottom: 88%;
+    border-radius: 100% 100% 50% 50%;
+    transform: translateX(-50%) scaleY(1.5);
+}
+.tree-layer-9 {
+    width: 14%;
+    height: 5%;
+    background: linear-gradient(135deg, 
+        #2ad47c 0%,
+        #32e889 50%,
+        #2ad47c 100%);
+    z-index: 9;
+    bottom: 94%;
+    border-radius: 100% 100% 50% 50%;
+    transform: translateX(-50%) scaleY(1.5);
+}
+.tree-layer-10 {
+    width: 8%;
+    height: 4%;
+    background: linear-gradient(135deg, 
+        #2ad47c 0%,
+        #32e889 50%,
+        #2ad47c 100%);
+    z-index: 10;
+    bottom: 99%;
+    border-radius: 100% 100% 50% 50%;
+    transform: translateX(-50%) scaleY(1.5);
+}
+
+/* Efecto de textura para las ramas */
+.tree-layer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(255, 255, 255, 0.568) 0%,
+            transparent 60%
+        ),
+        radial-gradient(
+            circle at 70% 70%,
+            rgba(0, 0, 0, 0.219) 0%,
+            transparent 60%
+        );
+    border-radius: inherit;
+}
+
+/* Sombras para profundidad */
+.tree-layer::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.137);
+    filter: blur(10px);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(40px, 8vw);
+    height: min(40px, 8vw);
+    background: #ffd700;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: starTwinkle 1.5s infinite alternate;
+    z-index: 12;
+}
+
+.trunk {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(40px, 10vw);
+    height: min(70px, 12vh);
+    background: linear-gradient(90deg, 
+        #2d1810 0%, 
+        #5c3326 50%, 
+        #2d1810 100%);
+    border-radius: 8px;
+    z-index: 0;
+}
+
+.light {
+    position: absolute;
+    width: min(10px, 2vw);
+    height: min(10px, 2vw);
+    border-radius: 50%;
+    filter: blur(3px);
+    z-index: 11;
+    transform-origin: center;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.decoration {
+    position: absolute;
+    width: min(18px, 4vw);
+    height: min(18px, 4vw);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, white, currentColor);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 11;
+    transition: transform 0.2s;
+}
+
+.snow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 11;
+}
+
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: clamp(12px, 3vw, 20px);
+    animation: snowfall linear infinite;
+    pointer-events: none;
+}
+
+/* Contenedor de regalos */
+.gifts-container {
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 25px;
+    z-index: 2;
+    perspective: 800px;
+}
+
+/* Contenedor de cada regalo */
+.gift {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    transform-style: preserve-3d;
+    animation: giftFloat 3s ease-in-out infinite;
+}
+
+/* Caras del cubo */
+.gift-face {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    backface-visibility: visible;
+}
+
+/* Cara frontal */
+.front {
+    background: linear-gradient(135deg, #ff6b6b, #cc0000);
+    transform: translateZ(15px);
+}
+
+/* Cara trasera */
+.back {
+    background: linear-gradient(135deg, #ff5252, #b71c1c);
+    transform: translateZ(-15px) rotateY(180deg);
+}
+
+/* Cara superior */
+.top {
+    background: linear-gradient(135deg, #ff8a80, #d32f2f);
+    transform: rotateX(-90deg) translateZ(15px);
+}
+
+/* Cara inferior */
+.bottom {
+    background: linear-gradient(135deg, #ff5252, #b71c1c);
+    transform: rotateX(90deg) translateZ(15px);
+}
+
+/* Cara izquierda */
+.left {
+    background: linear-gradient(135deg, #ff8a80, #c62828);
+    transform: rotateY(-90deg) translateZ(15px);
+}
+
+/* Cara derecha */
+.right {
+    background: linear-gradient(135deg, #ff8a80, #c62828);
+    transform: rotateY(90deg) translateZ(15px);
+}
+
+/* Listón vertical (para cada cara visible) */
+.gift-face::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #ffeb3b;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 5px rgba(255,235,59,0.5);
+}
+
+/* Listón horizontal (para cada cara visible) */
+.gift-face::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background: #ffeb3b;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 5px rgba(255,235,59,0.5);
+}
+
+/* Colores personalizados para cada regalo */
+/* Primer regalo - Rojo */
+.gift:nth-child(1) .front {
+    background: linear-gradient(135deg, #ff6b6b, #cc0000);
+}
+.gift:nth-child(1) .back {
+    background: linear-gradient(135deg, #ff5252, #b71c1c);
+}
+.gift:nth-child(1) .top {
+    background: linear-gradient(135deg, #ff8a80, #d32f2f);
+}
+.gift:nth-child(1) .bottom {
+    background: linear-gradient(135deg, #ff5252, #b71c1c);
+}
+.gift:nth-child(1) .left, 
+.gift:nth-child(1) .right {
+    background: linear-gradient(135deg, #ff8a80, #c62828);
+}
+
+/* Segundo regalo - Azul */
+.gift:nth-child(2) .front {
+    background: linear-gradient(135deg, #64b5f6, #1976d2);
+}
+.gift:nth-child(2) .back {
+    background: linear-gradient(135deg, #42a5f5, #1565c0);
+}
+.gift:nth-child(2) .top {
+    background: linear-gradient(135deg, #90caf9, #1e88e5);
+}
+.gift:nth-child(2) .bottom {
+    background: linear-gradient(135deg, #42a5f5, #1565c0);
+}
+.gift:nth-child(2) .left, 
+.gift:nth-child(2) .right {
+    background: linear-gradient(135deg, #90caf9, #1976d2);
+}
+
+/* Tercer regalo - Morado */
+.gift:nth-child(3) .front {
+    background: linear-gradient(135deg, #ba68c8, #7b1fa2);
+}
+.gift:nth-child(3) .back {
+    background: linear-gradient(135deg, #ab47bc, #6a1b9a);
+}
+.gift:nth-child(3) .top {
+    background: linear-gradient(135deg, #ce93d8, #8e24aa);
+}
+.gift:nth-child(3) .bottom {
+    background: linear-gradient(135deg, #ab47bc, #6a1b9a);
+}
+.gift:nth-child(3) .left, 
+.gift:nth-child(3) .right {
+    background: linear-gradient(135deg, #ce93d8, #7b1fa2);
+}
+
+/* Cuarto regalo - Verde */
+.gift:nth-child(4) .front {
+    background: linear-gradient(135deg, #81c784, #388e3c);
+}
+.gift:nth-child(4) .back {
+    background: linear-gradient(135deg, #66bb6a, #2e7d32);
+}
+.gift:nth-child(4) .top {
+    background: linear-gradient(135deg, #a5d6a7, #43a047);
+}
+.gift:nth-child(4) .bottom {
+    background: linear-gradient(135deg, #66bb6a, #2e7d32);
+}
+.gift:nth-child(4) .left, 
+.gift:nth-child(4) .right {
+    background: linear-gradient(135deg, #a5d6a7, #388e3c);
+}
+
+/* Quinto regalo - Dorado */
+.gift:nth-child(5) .front {
+    background: linear-gradient(135deg, #ffd54f, #ff8f00);
+}
+.gift:nth-child(5) .back {
+    background: linear-gradient(135deg, #ffca28, #f57c00);
+}
+.gift:nth-child(5) .top {
+    background: linear-gradient(135deg, #ffe082, #ffa000);
+}
+.gift:nth-child(5) .bottom {
+    background: linear-gradient(135deg, #ffca28, #f57c00);
+}
+.gift:nth-child(5) .left, 
+.gift:nth-child(5) .right {
+    background: linear-gradient(135deg, #ffe082, #ff8f00);
+}
+
+/* Personalización de los listones para cada regalo */
+.gift:nth-child(1) .gift-face::before,
+.gift:nth-child(1) .gift-face::after {
+    background: #ffeb3b;
+}
+
+.gift:nth-child(2) .gift-face::before,
+.gift:nth-child(2) .gift-face::after {
+    background: #ffd700;
+}
+
+.gift:nth-child(3) .gift-face::before,
+.gift:nth-child(3) .gift-face::after {
+    background: #fff176;
+}
+
+.gift:nth-child(4) .gift-face::before,
+.gift:nth-child(4) .gift-face::after {
+    background: #ffee58;
+}
+
+.gift:nth-child(5) .gift-face::before,
+.gift:nth-child(5) .gift-face::after {
+    background: #ffeb3b;
+}
+
+/* Rotación inicial de los cubos */
+.gift:nth-child(2n) {
+    transform: rotateY(25deg) rotateX(10deg);
+}
+
+.gift:nth-child(2n+1) {
+    transform: rotateY(-25deg) rotateX(10deg);
+}
+
+/* Animación de flotación */
+@keyframes giftFloat {
+    0%, 100% {
+        transform: translateY(0) rotateY(var(--rotate-y)) rotateX(10deg);
+    }
+    50% {
+        transform: translateY(-10px) rotateY(var(--rotate-y)) rotateX(10deg);
+    }
+}
+
+.gift:nth-child(2n) {
+    --rotate-y: 25deg;
+}
+
+.gift:nth-child(2n+1) {
+    --rotate-y: -25deg;
+}
+
+/* Estilo para los números/símbolos en la cara frontal */
+.front::before {
+    content: attr(data-symbol);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.text {
+    color: #ff4444;
+    font-family: 'Arial', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    animation: textGlow 2s infinite alternate;
+    z-index: 11;
+}
+
+/* Animaciones */
+@keyframes lightTwinkle {
+    0% { 
+        opacity: 0.4; 
+        transform: scale(0.8); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1.2); 
+    }
+}
+
+@keyframes starTwinkle {
+    0% { 
+        opacity: 0.8; 
+        transform: translateX(-50%) translateY(-50%) scale(0.9); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(-50%) scale(1.1); 
+    }
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+@keyframes textGlow {
+    from { 
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); 
+    }
+    to { 
+        text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 
+                    0 0 30px rgba(255, 0, 0, 0.6); 
+    }
+}
+
+/* Media Queries */
+@media (max-height: 500px) {
+    .tree-container {
+        height: 50vh;
+        margin: 2vh 0;
+    }
+    
+    .star {
+        top: -15px;
+    }
+    
+    .trunk {
+        bottom: -30px;
+    }
+    
+    header {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .tree-container {
+        width: 95vw;
+    }
+    
+    .star {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (min-width: 351px) and (max-width: 1582px) {
+    .tree-container {
+        margin: 2vh 0;
+    }
+    
+    .star {
+        top: -25px;
+    }
+    
+    .trunk {
+        bottom: -45px;
+    }
+}
+
+button {
+    position: relative;
+    padding: clamp(10px, 2vw, 20px) clamp(20px, 4vw, 40px);
+    font-size: clamp(16px, 2.5vw, 24px);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background: linear-gradient(145deg, #d42626, #aa1f1f);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(212, 38, 38, 0.3),
+                inset 0 2px 10px rgba(255, 255, 255, 0.3),
+                0 0 20px rgba(255, 0, 0, 0.2);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Efecto de nieve en el botón */
+button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(circle, 
+        rgba(255, 255, 255, 0.3) 1px, 
+        transparent 1px) 0 0 / 10px 10px;
+    opacity: 0;
+    animation: snow 4s linear infinite;
+    pointer-events: none;
+}
+
+/* Borde brillante */
+button::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid #fff;
+    border-radius: 27px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Efectos hover */
+button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(145deg, #e62929, #c22222);
+    box-shadow: 0 6px 20px rgba(212, 38, 38, 0.4),
+                inset 0 2px 10px rgba(255, 255, 255, 0.4),
+                0 0 25px rgba(255, 0, 0, 0.3);
+}
+
+button:hover::before {
+    opacity: 0.5;
+}
+
+button:hover::after {
+    opacity: 0.5;
+    animation: borderGlow 2s infinite;
+}
+
+/* Efecto active */
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(212, 38, 38, 0.3),
+                inset 0 1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Animaciones */
+@keyframes snow {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes borderGlow {
+    0% {
+        box-shadow: 0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 15px #ff0000;
+    }
+    50% {
+        box-shadow: 0 0 10px #fff,
+                    0 0 20px #fff,
+                    0 0 25px #ff0000;
+    }
+    100% {
+        box-shadow: 0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 15px #ff0000;
+    }
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    button {
+        padding: clamp(8px, 1.5vw, 15px) clamp(16px, 3vw, 30px);
+        font-size: clamp(14px, 2vw, 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        padding: clamp(6px, 1vw, 12px) clamp(12px, 2vw, 24px);
+        font-size: clamp(12px, 1.5vw, 18px);
+    }
+}
+
+/* Opcional: Tema oscuro */
+@media (prefers-color-scheme: dark) {
+    button {
+        background: linear-gradient(145deg, #c22222, #991c1c);
+        box-shadow: 0 4px 15px rgba(194, 34, 34, 0.4),
+                inset 0 2px 10px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.decoratio {
+    position: absolute;    /* Posiciona el elemento de forma absoluta dentro del botón */
+    width: 100%;          /* Ocupa todo el ancho del botón */
+    height: 100%;         /* Ocupa todo el alto del botón */
+    top: 0;              /* Se alinea desde la parte superior */
+    left: 0;             /* Se alinea desde la izquierda */
+    pointer-events: none; /* Hace que el elemento no intercepte eventos del mouse */
+    overflow: hidden;     /* Oculta cualquier contenido que se salga del contenedor */
+}
+.decoratio::before,
+.decoratio::after {
+    content: '❄';        /* Añade un copo de nieve como contenido */
+    position: absolute;   /* Posicionamiento absoluto dentro del .decoration */
+    color: rgba(255, 255, 255, 0.747); /* Color blanco semi-transparente */
+    font-size: 1.2em;    /* Tamaño del copo de nieve */
+    animation: float 3s infinite; /* Aplica la animación 'float' */
+}
+.decoratio::before {
+    left: 10%;           /* Copo izquierdo al 10% del borde izquierdo */
+    animation-delay: -1s; /* Retrasa la animación para que no se muevan al mismo tiempo */
+}
+
+.decoratio::after {
+    right: 10%;          /* Copo derecho al 10% del borde derecho */
+    animation-delay: -2s; /* Diferente retraso para más variedad */
+}
+@keyframes float {
+    0%, 100% {
+        transform: translateY(2) rotate(0deg);  /* Posición inicial y final */
+        opacity: 1;                          /* Semi-transparente */
+    }
+    50% {
+        transform: translateY(-10px) rotate(180deg); /* Se mueve hacia arriba y gira */
+        opacity: 1;                               /* Más visible */
+    }
+}
+
+/* Modifica el footer */
+.christmas-footer { /* Cambiado de relative a fixed */
+    bottom: 0; /* Añadido */
+    left: 0; /* Añadido */
+    width: 100%;
+    background: linear-gradient(
+        45deg, 
+        #c70012 0%, 
+        #8b0000 25%, 
+        #1a472a 50%, 
+        #8b0000 75%, 
+        #c70012 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
+    text-align: center;
+    border-top: linear-gradient(
+        45deg, 
+        #c70012 0%, 
+        #8b0000 25%, 
+        #1a472a 50%, 
+        #8b0000 75%, 
+        #c70012 100%
+    );
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 100; /* Añadido */
+}
+
+.footer-content {
+    width: min(95%, 1200px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+.footer-message {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+}
+
+.footer-text {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.heart-beat {
+    display: inline-block;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    animation: heartBeat 1.5s infinite;
+}
+
+.footer-date {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    color: #f8c9d4;
+    margin: 0.5rem 0;
+}
+
+.footer-decorations {
+    width: 100%;
+    padding: clamp(0.5rem, 2vw, 1rem) 0;
+}
+
+.decoration-row {
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.5rem, 3vw, 1rem);
+    flex-wrap: wrap;
+}
+
+.decoration-item {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    animation: float 3s infinite ease-in-out;
+}
+
+.footer-social {
+    margin-top: clamp(0.5rem, 2vw, 1rem);
+}
+
+.footer-love {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    color: #f8c9d4;
+    margin: 0;
+}
+
+/* Animaciones */
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.3); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.3); }
+    70% { transform: scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Aplicar delays a las decoraciones */
+.decoration-item:nth-child(1) { animation-delay: 0s; }
+.decoration-item:nth-child(2) { animation-delay: 0.2s; }
+.decoration-item:nth-child(3) { animation-delay: 0.4s; }
+.decoration-item:nth-child(4) { animation-delay: 0.6s; }
+
+/* Media Queries para ajustes específicos */
+@media screen and (max-width: 480px) {
+    .footer-content {
+        width: 92%;
+    }
+    
+    .decoration-row {
+        gap: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .footer-content {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .footer-content {
+        width: 85%;
+    }
+}
+
+/* Soporte para preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .heart-beat,
+    .decoration-item {
+        animation: none;
+    }
+}
+.gifts-results {
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMiIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjIpIiAvPgo8L3N2Zz4=');
+}
+
+.gifts-table-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 2px solid #e8e8e8;
+    position: relative;
+    overflow: hidden;
+}
+
+.gifts-table-container::before {
+    content: '🎄';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-size: 40px;
+    opacity: 0.2;
+    transform: rotate(-15deg);
+}
+
+.gifts-table-container::after {
+    content: '🎁';
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    font-size: 40px;
+    opacity: 0.2;
+    transform: rotate(15deg);
+}
+
+.gifts-table-title {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #c41e3a; /* Rojo navideño */
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Mountains of Christmas', cursive;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.gifts-table-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #c41e3a, transparent);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    padding: 15px;
+    background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    margin-bottom: 15px;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.table-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.table-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #c41e3a, #228B22); /* Rojo a verde navideño */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.table-row:hover::before {
+    opacity: 1;
+}
+
+.emoji-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.emoji-cell::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.suggestions-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 15px;
+}
+
+.suggestion {
+    padding: 12px 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    border-left: 4px solid #c41e3a;
+    font-size: 1.1em;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.suggestion:hover {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    transform: translateX(5px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-cell {
+    padding: 12px 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-cell:first-child::before {
+    content: '🎁';
+    font-size: 1.2em;
+}
+
+.header-cell:last-child::before {
+    content: '✨';
+    font-size: 1.2em;
+}
+
+/* Añadir efecto de nieve */
+@keyframes snowfall {
+    0% { transform: translateY(-100%) rotate(0deg); }
+    100% { transform: translateY(1000%) rotate(360deg); }
+}
+
+.gifts-table-container::before {
+    content: '❄️';
+    position: absolute;
+    animation: snowfall 10s linear infinite;
+    opacity: 0.3;
+}
